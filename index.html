@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="bootstrap.min.css">
+        <link rel="stylesheet" href="bootstrap.min.css.map">
+        <title>javaScript</title>
+    </head>
+    <body>
+        <form class="w-100  ">
+            <div class="form-group">
+                <label for="productName"
+                    class="form-label ms-3 "> Product Name
+                </label>
+                <input type="text" list="productsName"
+                    class="form-control ms-3 "
+                    id="productName" name="productName"
+                    placeholder="Enter product name">
+                <datalist id="productsName">
+                    <option value="TV">
+                        <option value="Laptop">
+                            <option value="Phone">
+
+                            </datalist>
+                            <label for="productPrice"
+                                class="form-label ms-3 mt-3">Price
+                                product
+                            </label>
+                            <input type="number" list="productPrices"
+                                class="form-control ms-3 "
+                                id="productPrice" name="productPrice"
+                                placeholder="Enter product price">
+                            <datalist id="productPrices">
+                                <option value="100">
+                                    <option value="250">
+                                        <option value="500">
+                                            <option value="1000">
+                                            </datalist>
+                                            <label
+                                                for="productCategory"
+                                                class="form-label ms-3 mt-3">Product
+                                                Category
+                                            </label>
+                                            <input type="text"
+                                                list="productCategories"
+                                                class="form-control ms-3"
+                                                id="productCategory"
+                                                name="productCategory"
+                                                placeholder="Enter product category">
+                                            <datalist id="productCategories">
+                                                <option value="Electronics">
+                                                    <option
+                                                        value="Home Appliances">
+                                                        <option value="Phones">
+                                                            <option
+                                                                value="Computers">
+                                                            </datalist>
+                                                            <label
+                                                                for="productDescription"
+                                                                class="form-label ms-3 mt-3">Product
+                                                                Description
+                                                            </label>
+                                                            <textarea
+                                                                name="productDescription"
+                                                                id="productDescription"
+                                                                cols="30"
+                                                                rows="10"
+                                                                class="form-control ms-3 mt-3"></textarea>
+                                                            <label
+                                                                for="productImage"
+                                                                class="form-label ms-3 mt-3">Product
+                                                                Image
+                                                            </label>
+                                                            <input
+                                                                type="file"
+                                                                name="productImage"
+                                                                id="productImage"
+                                                                class="form-control ms-3 mt-3">
+                                                            <input
+                                                                type="button"
+                                                                value="Add Product"
+                                                                class="btn btn-primary ms-3 mt-3 "
+                                                                onclick="Addproduct() ">
+
+                                                        </form>
+                                                        <div class="container">
+                                                            <div
+                                                                class="row g-3"
+                                                                id='rowContainer'>
+
+                                                            </div>
+
+                                                            <script
+                                                                src="js/main.js"></script>
+                                                            <script
+                                                                src="js/bootstrap.bundle.min.js"></script>
+                                                            <script
+                                                                src="js/bootstrap.min.js"></script>
+
+                                                        </body>
+                                                    </html>

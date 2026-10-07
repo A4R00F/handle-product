@@ -7,6 +7,8 @@
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="bootstrap.min.css">
         <link rel="stylesheet" href="bootstrap.min.css.map">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
         <title>javaScript</title>
     </head>
     <body>
@@ -81,9 +83,24 @@
                                                                 class="form-control ms-3 mt-3">
                                                             <input
                                                                 type="button"
+                                                                id="addProductBtn"
                                                                 value="Add Product"
                                                                 class="btn btn-primary ms-3 mt-3 "
                                                                 onclick="Addproduct() ">
+                                                            <input
+                                                                type="button"
+                                                                id="updateProductBtn"
+                                                                value="Update Product"
+                                                                class="btn btn-warning ms-3 mt-3 d-none "
+                                                                onclick="updateProduct() ">
+
+                                                            <input
+                                                                oninput="searchProducts()"
+                                                                class="form-control mr-sm-2 w-75 m-auto my-4 pt-3 center "
+                                                                type="search"
+                                                                id="searchinput"
+                                                                placeholder="Search by name..."
+                                                                aria-label="Search">
 
                                                         </form>
                                                         <div class="container">

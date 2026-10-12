@@ -26,14 +26,61 @@ if (localStorage.getItem("productlist") != null) {
 }
 displayProducts();
 
+function validateProduct(isUpdate = false) {
+    var nameRegex = /^[A-Za-z\u0600-\u06FF][A-Za-z\u0600-\u06FF0-9\s-]*$/;
+    var categoryRegex = /^[A-Za-z\u0600-\u06FF][A-Za-z\u0600-\u06FF\s-]*$/;
+
+    if (productname.value.trim() === "") {
+        alert("Product name is required");
+        return false;
+    }
+
+    if (!nameRegex.test(productname.value.trim())) {
+        alert("Product name must contain valid letters, numbers, or spaces");
+        return false;
+    }
+
+    if (productprice.value.trim() === "" ||
+        isNaN(productprice.value) ||
+        Number(productprice.value) <= 0) {
+        alert("Please enter a valid price greater than zero");
+        return false;
+    }
+
+    if (productcategory.value.trim() === "") {
+        alert("Product category is required");
+        return false;
+    }
+
+    if (!categoryRegex.test(productcategory.value.trim())) {
+        alert("Product category must contain valid letters or spaces");
+        return false;
+    }
+
+    if (productdescription.value.trim() === "") {
+        alert("Product description is required");
+        return false;
+    }
+
+    if (!isUpdate && productImage.files.length === 0) {
+        alert("Please select a product image");
+        return false;
+    }
+
+    return true;
+}
+
 function Addproduct() {
+    if (!validateProduct()) {
+        return;
+    }
     console.log("Add product function called");
     var product = {
         name: productname.value,
         price: productprice.value,
         category: productcategory.value,
         description: productdescription.value,
-        image: productImage.value
+        image: productImage.files[0].name
     };
     console.log(product);
     productlist.push(product);
@@ -62,7 +109,7 @@ function displayProducts() {
                                                                     <div
                                                                         class="product">
                                                                         <img
-                                                                            src="images/banana.jpeg"
+                                                                            src="images/${productlist[i].image}"
                                                                             alt="Product Image"
                                                                             class="product-image w-50">
                                                                         <h3
@@ -132,7 +179,7 @@ function searchProducts() {
                                                                     <div
                                                                         class="product">
                                                                         <img
-                                                                            src="images/banana.jpeg"
+                                                                            src="images/${productlist[i].image}"
                                                                             alt="Product Image"
                                                                             class="product-image w-50">
                                                                         <h3
@@ -179,7 +226,7 @@ function setForUpdate(updateIndex) {
     productprice.value = productlist[updateIndex].price;
     productcategory.value = productlist[updateIndex].category;
     productdescription.value = productlist[updateIndex].description;
-    productImage.value = productlist[updateIndex].image;
+    productImage.value = "";
 
     // updateProductBtn.onclick = function () {
     //     updateProduct(updateIndex);
@@ -187,11 +234,16 @@ function setForUpdate(updateIndex) {
 
 }
 function updateProduct() {
+    if (!validateProduct(true)) {
+        return;
+    }
     productlist[indexForUpdate].name = productname.value;
     productlist[indexForUpdate].price = productprice.value;
     productlist[indexForUpdate].category = productcategory.value;
     productlist[indexForUpdate].description = productdescription.value;
-    productlist[indexForUpdate].image = productImage.value;
+    if (productImage.files.length > 0) {
+        productlist[indexForUpdate].image = productImage.files[0].name;
+    }
 
     localStorage.setItem("productlist", JSON.stringify(productlist));
     clearForm();
